@@ -1,0 +1,9 @@
+{{ define "main" }}
+    <header class="content__header">
+        <h1>Most Recent Ramblings</h1>
+    </header>
+    {{ range ( where .Site.RegularPages "Type" "posts" | first 10 ) }}
+        <li><a href="{{ .Permalink }}">{{ .Title }}</a>, <span class="date">{{ .Date.Format "2 January 2006" }}</span></li>
+    {{end}}
+{{ end }}
+
